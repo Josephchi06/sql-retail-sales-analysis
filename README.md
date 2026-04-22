@@ -1,5 +1,16 @@
 # 📊 Retail Sales Analysis using SQL
 
+## 📑 Table of Contents
+
+- [Project Overview](#-project-overview)  
+- [Project Objectives](#-project-objectives)  
+- [Dataset Description](#-dataset-description)  
+- [Business Questions](#-business-questions)  
+- [SQL Analysis](#-sql-analysis)  
+- [Key Insights](#-key-insights)  
+- [Conclusion](#-conclusion)  
+
+------
 ## 📌 Project Overview
 This project analyzes retail sales data using SQL to uncover insights into product performance, customer behavior, regional trends, and profitability.
 
