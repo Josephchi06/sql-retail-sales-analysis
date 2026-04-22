@@ -52,11 +52,14 @@ I grouped the data by product name and calculated total profit for each product.
 
 ```sql
 SELECT TOP 10
-    Product_Name,
-    SUM(Profit) AS Total_Profit
+Product_Name,
+ROUND(SUM(Profit),2) AS Total_profit
+
 FROM dbo.Sales
+
 GROUP BY Product_Name
-ORDER BY Total_Profit DESC;
+
+ORDER BY Total_profit  DESC;
 ```
 
 ---
@@ -67,13 +70,16 @@ ORDER BY Total_Profit DESC;
 I grouped the data by category and sub-category and calculated total profit for each group. I then sorted the results in ascending order to identify the least profitable and loss-making segments.
 
 ```sql
-SELECT 
-    Category,
-    Sub_Category,
-    ROUND(SUM(Profit), 2) AS Total_Profit
+SELECT
+Category,
+Sub_Category,
+ROUND(SUM(profit),2) AS Total_profit
+
 FROM dbo.Sales
+
 GROUP BY Category, Sub_Category
-ORDER BY Total_Profit ASC;
+
+ORDER BY Total_profit ASC;
 ```
 
 ---
@@ -84,12 +90,16 @@ ORDER BY Total_Profit ASC;
 I grouped the data by customer name and calculated total sales for each customer. I then sorted the results in descending order to identify the customers with the highest revenue.
 
 ```sql
+
 SELECT TOP 10
-    Customer_Name,
-    ROUND(SUM(Sales), 2) AS Total_Sales
+Customer_Name,
+ROUND(SUM(Sales),2) AS Total_sales
+
 FROM dbo.Sales
+
 GROUP BY Customer_Name
-ORDER BY Total_Sales DESC;
+
+ORDER BY Total_sales DESC;
 ```
 
 ---
@@ -100,12 +110,15 @@ ORDER BY Total_Sales DESC;
 I grouped the data by region and calculated total sales for each region. I then sorted the results in descending order to identify the highest-performing regions by revenue.
 
 ```sql
-SELECT
-    Region,
-    ROUND(SUM(Sales), 2) AS Total_Sales
+SELECT 
+Region,
+ROUND(SUM(Sales),2) AS Total_sales
+
 FROM dbo.Sales
+
 GROUP BY Region
-ORDER BY Total_Sales DESC;
+
+ORDER BY Total_sales DESC;
 ```
 
 ---
@@ -117,10 +130,13 @@ I grouped the data by region and calculated total profit for each region. I then
 
 ```sql
 SELECT
-    Region,
-    ROUND(SUM(Profit), 2) AS Total_Profit
+Region,
+ROUND(SUM(profit),2) AS Total_Profit
+
 FROM dbo.Sales
+
 GROUP BY Region
+
 ORDER BY Total_Profit DESC;
 ```
 
@@ -133,13 +149,17 @@ I extracted the year and month from the order date and grouped the data accordin
 
 ```sql
 SELECT
-    DATEPART(MONTH, Order_Date) AS Month,
-    DATEPART(YEAR, Order_Date) AS Year,
-    ROUND(SUM(Sales), 2) AS Total_Sales
+DATEPART(MONTH,Order_Date) AS Month,
+DATEPART(YEAR,Order_Date) AS year,
+ROUND(SUM(Sales),2) AS Total_sales
+
 FROM dbo.Sales
-GROUP BY DATEPART(YEAR, Order_Date),
-         DATEPART(MONTH, Order_Date)
-ORDER BY Year ASC, Month ASC;
+
+GROUP BY DATEPART(YEAR,Order_Date),
+DATEPART(MONTH,Order_Date) 
+
+ORDER BY DATEPART(YEAR,Order_Date) ASC,
+DATEPART(MONTH,Order_Date) ASC;
 ```
 
 ---
@@ -151,12 +171,16 @@ I grouped the data by customer segment and calculated total sales and total prof
 
 ```sql
 SELECT
-    Segment,
-    ROUND(SUM(Sales), 2) AS Total_Sales,
-    ROUND(SUM(Profit), 2) AS Total_Profit
-FROM dbo.Sales
+Segment,
+ROUND(SUM(Sales),2) AS Total_sales,
+ROUND(SUM(Profit),2) AS Total_profit
+
+FROM dbo.Sales 
+
 GROUP BY Segment
-ORDER BY Total_Profit DESC, Total_Sales DESC;
+
+ORDER BY Total_profit DESC,
+Total_sales DESC;
 ```
 
 ---
@@ -168,10 +192,13 @@ I grouped the data by rounded discount levels and calculated the average profit 
 
 ```sql
 SELECT 
-    ROUND(Discount, 1) AS Discount,
-    ROUND(AVG(Profit), 2) AS Avg_Profit
+ROUND(Discount,1) AS Discount,
+ROUND(AVG(Profit),2) AS Avg_Profit
+
 FROM dbo.Sales
-GROUP BY ROUND(Discount, 1)
+
+GROUP BY ROUND(Discount,1)
+
 ORDER BY Discount ASC;
 ```
 
