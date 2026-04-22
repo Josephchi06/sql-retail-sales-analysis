@@ -28,9 +28,18 @@ The analysis focuses on identifying key drivers of revenue and profit, evaluatin
 ---
 
 ## 📊 Dataset Description
-The dataset contains retail transaction data including order details, customer information, product categories, sales, profit, quantity, discount, and regional data.
 
-Key columns used:
+The dataset used for this analysis is the Superstore Sales dataset, which contains transactional data from a retail superstore, including information on orders, customers, products, sales, profit, quantity, and discounts.
+
+**Data Source:**  
+The dataset was obtained from Kaggle:  
+👉 https://www.kaggle.com/datasets/vivek468/superstore-dataset-final  
+
+This dataset is widely used for data analysis and visualization projects and is suitable for exploring business performance and generating insights.
+
+According to the dataset documentation, it includes key attributes such as order details, customer segments, product categories, regional data, and financial metrics like sales, profit, quantity, and discount. :contentReference[oaicite:0]{index=0}  
+
+### 📌 Key Columns Used
 - Order Date  
 - Region  
 - Category & Sub-Category  
